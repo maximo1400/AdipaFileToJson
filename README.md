@@ -8,9 +8,9 @@ An automated assessment digitization platform built for **Giunti Psychometrics**
 
 ## Live Deployments
 
-- **Frontend Application (Vercel):** `[Your Vercel URL will be placed here]`
-- **Backend API Docs (Render):** `[Your Render URL will be placed here]/docs`
-- **Backend Health Check:** `[Your Render URL will be placed here]/api/health`
+- **Frontend Application (Vercel):** https://adipa-file-to-json.vercel.app/
+- **Backend API Docs (Render):** https://adipafiletojson.onrender.com/docs
+- **Backend Health Check:** https://adipafiletojson.onrender.com/api/health
 
 ---
 
