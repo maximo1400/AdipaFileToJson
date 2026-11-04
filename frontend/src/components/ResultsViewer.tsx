@@ -231,7 +231,7 @@ export const ResultsViewer: React.FC<ResultsViewerProps> = ({ data, filename }) 
               {/* Open-ended items */}
               {item.tipo === 'desarrollo' && (
                 <div className="mt-3 ml-11 p-3 rounded-lg bg-slate-50 border border-dashed border-slate-200 text-xs text-slate-500">
-                  Respuesta abierta del evaluado (ítem sin alternativas estructuradas).
+                  Respuesta abierta del evaluado.
                 </div>
               )}
 
