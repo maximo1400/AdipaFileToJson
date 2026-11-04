@@ -16,6 +16,7 @@ client = TestClient(app)
 def test_health_check_endpoint():
     response = client.get("/api/health")
     assert response.status_code == 200
+    assert "X-Process-Time" in response.headers
     data = response.json()
     assert data["status"] == "ok"
     assert "gemini_configured" in data

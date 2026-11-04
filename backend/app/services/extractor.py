@@ -1,4 +1,5 @@
 import logging
+import time
 
 from google import genai
 from google.genai import types
@@ -66,6 +67,10 @@ def extract_questionnaire_from_text(
             f"--- END DOCUMENT ---"
         )
 
+        logger.info(
+            f"Invoking Gemini model '{effective_model}' with {len(extracted_text)} characters"
+        )
+        llm_start = time.perf_counter()
         response = client.models.generate_content(
             model=effective_model,
             contents=prompt,
@@ -75,6 +80,10 @@ def extract_questionnaire_from_text(
                 response_schema=QuestionnaireResponse,
                 temperature=0.1,
             ),
+        )
+        llm_duration = time.perf_counter() - llm_start
+        logger.info(
+            f"Gemini model '{effective_model}' completed in {llm_duration:.2f}s"
         )
 
         if not response.text:
