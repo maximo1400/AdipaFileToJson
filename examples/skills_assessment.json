@@ -1,0 +1,43 @@
+{
+  "titulo": "Skills and Logic Assessment",
+  "idioma": "en",
+  "total_items": 2,
+  "items": [
+    {
+      "numero": 1,
+      "enunciado": "Which number completes the series: 2, 4, 8, 16, ...?",
+      "tipo": "seleccion_multiple",
+      "alternativas": [
+        {
+          "valor": "A",
+          "texto": "18"
+        },
+        {
+          "valor": "B",
+          "texto": "24"
+        },
+        {
+          "valor": "C",
+          "texto": "32"
+        }
+      ],
+      "respuesta_correcta": "C"
+    },
+    {
+      "numero": 2,
+      "enunciado": "Python is a statically typed compiled language.",
+      "tipo": "verdadero_falso",
+      "alternativas": [
+        {
+          "valor": "A",
+          "texto": "True"
+        },
+        {
+          "valor": "B",
+          "texto": "False"
+        }
+      ],
+      "respuesta_correcta": "B"
+    }
+  ]
+}

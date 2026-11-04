@@ -1,0 +1,43 @@
+{
+  "titulo": "Evaluacion de Habilidades Logicas",
+  "idioma": "es",
+  "total_items": 2,
+  "items": [
+    {
+      "numero": 1,
+      "enunciado": "Cual numero continua la serie: 3, 6, 12, 24, ...?",
+      "tipo": "seleccion_multiple",
+      "alternativas": [
+        {
+          "valor": "A",
+          "texto": "36"
+        },
+        {
+          "valor": "B",
+          "texto": "48"
+        },
+        {
+          "valor": "C",
+          "texto": "52"
+        }
+      ],
+      "respuesta_correcta": "B"
+    },
+    {
+      "numero": 2,
+      "enunciado": "El mercurio es el unico metal que es liquido a temperatura ambiente.",
+      "tipo": "verdadero_falso",
+      "alternativas": [
+        {
+          "valor": "A",
+          "texto": "Verdadero"
+        },
+        {
+          "valor": "B",
+          "texto": "Falso"
+        }
+      ],
+      "respuesta_correcta": "A"
+    }
+  ]
+}

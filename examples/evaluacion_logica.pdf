@@ -1,0 +1,52 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 432 >>
+stream
+BT
+/F1 14 Tf
+50 750 Td
+18 TL
+(Evaluacion de Habilidades Logicas) '
+(Instrucciones: Seleccione la respuesta correcta para cada una de las preguntas.) '
+() '
+(Item 1:) '
+(Cual numero continua la serie: 3, 6, 12, 24, ...?) '
+(A\) 36) '
+(B\) 48) '
+(C\) 52) '
+(Respuesta correcta: B) '
+() '
+(Item 2:) '
+(El mercurio es el unico metal que es liquido a temperatura ambiente.) '
+(A\) Verdadero) '
+(B\) Falso) '
+(Respuesta correcta: A) '
+ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000724 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+794
+%%EOF

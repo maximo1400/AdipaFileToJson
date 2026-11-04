@@ -1,0 +1,38 @@
+{
+  "titulo": "Questionario di Personalità e Stress",
+  "idioma": "it",
+  "total_items": 2,
+  "items": [
+    {
+      "numero": 1,
+      "enunciado": "Mi preoccupo eccessivamente per cose di poca importanza.",
+      "tipo": "escala_likert",
+      "alternativas": [
+        {
+          "valor": 0,
+          "texto": "Mai"
+        },
+        {
+          "valor": 1,
+          "texto": "A volte"
+        },
+        {
+          "valor": 2,
+          "texto": "Spesso"
+        },
+        {
+          "valor": 3,
+          "texto": "Sempre"
+        }
+      ],
+      "respuesta_correcta": null
+    },
+    {
+      "numero": 2,
+      "enunciado": "Descriva una situazione recente in cui si è sentito sotto pressione e come l'ha gestita.",
+      "tipo": "desarrollo",
+      "alternativas": [],
+      "respuesta_correcta": null
+    }
+  ]
+}
