@@ -77,3 +77,25 @@ def test_extract_successful_flow(mock_extract, mock_parse):
     assert data["idioma"] == "en"
     assert data["total_items"] == 1
     assert data["items"][0]["respuesta_correcta"] == "V"
+
+
+@patch("app.api.routes.parse_document")
+@patch("app.api.routes.extract_questionnaire_from_text")
+def test_extract_no_items_detected(mock_extract, mock_parse):
+    """Verifies that uploaded documents without questionnaire items return HTTP 422."""
+    mock_parse.return_value = (".pdf", "Generic article without any questionnaire questions")
+    mock_extract.return_value = QuestionnaireResponse(
+        titulo="Non Assessment Document",
+        idioma="es",
+        total_items=0,
+        items=[],
+    )
+
+    fake_pdf = b"%PDF-1.4..."
+    response = client.post(
+        "/api/extract",
+        files={"file": ("article.pdf", fake_pdf, "application/pdf")},
+    )
+
+    assert response.status_code == 422
+    assert "No se detectaron preguntas" in response.json()["detail"]

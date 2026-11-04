@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 from typing import Annotated
@@ -94,10 +95,10 @@ async def extract_questionnaire(
             detail="The uploaded file is empty (0 bytes).",
         )
 
-    # 3. Parse text from document
+    # 3. Parse text from document in threadpool to prevent blocking the event loop
     logger.info(f"Processing upload '{file.filename}' ({len(file_bytes) / 1024:.1f} KB)")
     try:
-        _, extracted_text = parse_document(file.filename, file_bytes)
+        _, extracted_text = await asyncio.to_thread(parse_document, file.filename, file_bytes)
         logger.info(f"Parsed {len(extracted_text)} characters from '{file.filename}'")
     except DocumentParsingError as e:
         logger.warning(f"Failed to parse document '{file.filename}': {e!s}")
@@ -112,15 +113,27 @@ async def extract_questionnaire(
             detail=f"Document parsing error: {e!s}",
         )
 
-    # 4. Structured extraction via Gemini LLM
+    # 4. Structured extraction via Gemini LLM in threadpool
     try:
-        result = extract_questionnaire_from_text(
+        result = await asyncio.to_thread(
+            extract_questionnaire_from_text,
             extracted_text=extracted_text,
         )
+
+        # Validate that items were actually found in the document
+        if result.total_items == 0 or len(result.items) == 0:
+            logger.warning(f"No questionnaire items detected in '{file.filename}'")
+            raise HTTPException(
+                status_code=UNPROCESSABLE_STATUS,
+                detail="No se detectaron preguntas ni ítems estructurados en el documento analizado. Asegúrese de que el archivo contenga un cuestionario o prueba psicológica legible.",
+            )
+
         logger.info(
             f"Successfully digitized '{result.titulo}': {result.total_items} items (lang: '{result.idioma}')"
         )
         return result
+    except HTTPException:
+        raise
     except LLMExtractionError as e:
         logger.warning(f"LLM extraction error for '{file.filename}': {e!s}")
         raise HTTPException(

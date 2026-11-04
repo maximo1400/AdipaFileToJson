@@ -48,8 +48,14 @@ export const App: React.FC = () => {
 
       const data: QuestionnaireResponse = await response.json()
       setResult(data)
-    } catch (err: any) {
-      setError(err.message || 'Error inesperado durante el procesamiento.')
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : typeof err === 'string'
+          ? err
+          : 'Error inesperado durante el procesamiento.'
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }
