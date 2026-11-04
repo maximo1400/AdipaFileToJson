@@ -74,7 +74,7 @@ def extract_questionnaire_from_text(
         response = client.models.generate_content(
             model=effective_model,
             contents=prompt,
-            config=types.GenerateContentConfig(
+            config=types.GenerateContentConfigDict(
                 system_instruction=SYSTEM_INSTRUCTION,
                 response_mime_type="application/json",
                 response_schema=QuestionnaireResponse,
