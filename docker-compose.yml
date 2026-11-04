@@ -1,0 +1,14 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=gemini-3.5-flash-lite
+      - MAX_FILE_SIZE_MB=15
+      - ALLOWED_ORIGINS=["*"]
+    restart: unless-stopped
+
